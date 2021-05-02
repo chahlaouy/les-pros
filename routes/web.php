@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+
+    Route::get('/dashboard', function(){
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/product-list', function(){
+        return view('products.index');
+    })->name('products.index');
+});
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
