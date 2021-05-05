@@ -58,6 +58,11 @@ class JetstreamServiceProvider extends ServiceProvider
             'delete',
         ])->description(__('Administrator users can perform any action.'));
 
+        Jetstream::role('sales', __('Sales'), [
+            'read',
+            'create',
+            'update',
+        ])->description(__('Sales users have the ability to read, create, and update.'));
         Jetstream::role('editor', __('Editor'), [
             'read',
             'create',

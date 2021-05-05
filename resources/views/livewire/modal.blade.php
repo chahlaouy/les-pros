@@ -1,4 +1,15 @@
 <div class="fixed top-0 left-0 w-full h-screen p-20 bg-gray-900 bg-opacity-50 z-50 rounded" x-show.transition="show" x-data="{show: true}">
+    {{-- flash component --}}
+    @if (session('success'))
+    <x-flash type="success">
+        {{ session('success') }}
+    </x-flash>
+@endif
+@if (session('error'))
+    <x-flash type="error">
+        {{ session('error') }}
+    </x-flash>
+@endif
     <form wire:submit.prevent="submitForm" method="POST">
         @csrf
         <div class="bg-white p-6 rounded">
@@ -20,6 +31,11 @@
                         @enderror" 
                         value="{{old('productID')}}"
                         placeholder="{{__('product id')}}">
+                        @error('productID')
+                            <span class="text-red-400">
+                                {{$message}}
+                            </span>
+                        @enderror 
                     </label>
                     <label 
                     class="block mb-8">
@@ -36,6 +52,11 @@
                         @enderror" 
                         value="{{old('productName')}}"
                         placeholder="{{__('product name')}}">
+                        @error('productName')
+                            <span class="text-red-400">
+                                {{$message}}
+                            </span>
+                        @enderror 
                     </label>
                     <label 
                     class="block">
@@ -52,6 +73,11 @@
                         @enderror" 
                         value="{{old('productUnit')}}"
                         placeholder="{{__('product unit')}}">
+                        @error('productUnit')
+                            <span class="text-red-400">
+                                {{$message}}
+                            </span>
+                        @enderror 
                     </label>
                 </div>
 
@@ -71,6 +97,11 @@
                         @enderror" 
                         value="{{old('productPrice')}}"
                         placeholder="{{__('product price')}}">
+                        @error('productPrice')
+                            <span class="text-red-400">
+                                {{$message}}
+                            </span>
+                        @enderror 
                     </label>
                     <label 
                     class="block mb-8">
@@ -81,15 +112,20 @@
                         id="product-category"
                         name="product-category"
                         class="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 
-                        @error('productPrice')
+                        @error('productCategory')
                         border border-red-500 
                         @enderror" 
                         >
-                            <option>category 1</option>
-                            <option>category 2</option>
-                            <option>category 3</option>
-                            <option>category 4</option>
+                            <option value="category">category 1</option>
+                            <option value="category">category 2</option>
+                            <option value="category">category 3</option>
+                            <option value="category">category 4</option>
                         </select>
+                        @error('productCategory')
+                            <span class="text-red-400">
+                                {{$message}}
+                            </span>
+                        @enderror 
                     </label>
                     <label class="block">
                         <span 
@@ -99,13 +135,18 @@
                         id="product-description"
                         name="product-description"
                         class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black 
-                        @error('productPrice')
+                        @error('productDescription')
                         border border-red-500 
                         @enderror" 
-                        value="{{old('productPrice')}}"rows="2" 
+                        value="{{old('productDescription')}}"rows="2" 
                         spellcheck="false"
                         
                         ></textarea>
+                        @error('productDescription')
+                            <span class="text-red-400">
+                                {{$message}}
+                            </span>
+                        @enderror 
                     </label>
                 </div>
 
@@ -121,6 +162,7 @@
                   </button>
                 <button 
                     x-on:click="show = false"
+                    wire:click="refreshProductList"
                     type="button" 
                     class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-400 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed">
                     

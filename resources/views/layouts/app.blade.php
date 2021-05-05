@@ -23,6 +23,17 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
+        {{-- flash component --}}
+        @if (session('success'))
+            <x-flash type="success">
+                {{ session('success') }}
+            </x-flash>
+        @endif
+        @if (session('error'))
+            <x-flash type="error">
+                {{ session('error') }}
+            </x-flash>
+        @endif
         <x-jet-banner />
 
         <div class="min-h-screen bg-green-100">

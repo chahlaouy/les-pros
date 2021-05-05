@@ -721,5 +721,11 @@
     "Broadcasts" : "Diffuser",
     "Customers" : "Les clients",
     "Products List" : "Liste des produits",
-    "Description" : "Description"
+    "Description" : "Description",
+    "Product added with success": "Produit ajouté avec succès",
+    "Added by": "Ajouté par",
+    "Last modified by": "Dernière modification par",
+    "You don't have any products yet": "Vous n'avez pas encore des produits",
+    "Create a new one": "Publiez-en un nouveau",
+    "Sorry there has been an error please try again later": "Désolé, une erreur s'est produite, veuillez réessayer plus tard"
 }

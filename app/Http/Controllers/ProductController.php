@@ -14,9 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
+
+        // get the cuurent team products
+
         return view('products.index', [
-            'products' => Product::all()
+            'products' => auth()->user()->currentTeam->products()->simplePaginate(10)
         ]);
     }
 

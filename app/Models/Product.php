@@ -10,4 +10,12 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function teams(){
+
+        return $this->belongsTo(Team::class)
+                        ->withCount('CountProducts');
+    }
+
+
 }

@@ -16,6 +16,9 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('uuid');
+            $table->foreignId('team_id');
+            $table->string('added_by');
+            $table->string('last_modified_by')->nullable();
             $table->string('name');
             $table->string('unit');
             $table->string('category');
@@ -23,6 +26,11 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('product_photo_path')->nullable();
             $table->timestamps();
+
+            $table->foreign('team_id')
+                        ->references('id')
+                            ->on('teams')
+                            ->onDelete('cascade');
         });
     }
 
