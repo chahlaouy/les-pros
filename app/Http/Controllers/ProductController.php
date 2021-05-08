@@ -17,9 +17,7 @@ class ProductController extends Controller
 
         // get the cuurent team products
 
-        return view('products.index', [
-            'products' => auth()->user()->currentTeam->products()->simplePaginate(10)
-        ]);
+        return view('products.index');
     }
 
     /**

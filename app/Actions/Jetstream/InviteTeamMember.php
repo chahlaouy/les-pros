@@ -20,7 +20,7 @@ class InviteTeamMember implements InvitesTeamMembers
      * @param  mixed  $user
      * @param  mixed  $team
      * @param  string  $email
-     * @param  string|null  $role
+     * @param  string|null  $role 
      * @return void
      */
     public function invite($user, $team, string $email, string $role = null)

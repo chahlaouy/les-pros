@@ -25,7 +25,7 @@ class AddTeamMember implements AddsTeamMembers
     {
         Gate::forUser($user)->authorize('addTeamMember', $team);
 
-        $this->validate($team, $email, $role);
+        $this->validate($team, $email, $role); 
 
         $newTeamMember = Jetstream::findUserByEmailOrFail($email);
 

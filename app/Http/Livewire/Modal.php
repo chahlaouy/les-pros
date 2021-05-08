@@ -11,22 +11,27 @@ class Modal extends Component
     public $productName;
     public $productUnit;
     public $productPrice;
+    public $productQuantity;
     public $productCategory; 
     public $productDescription;
 
-    
+    protected $rules = [
+        'productID' => 'required|unique:products,uuid', 
+        'productName' => 'required', 
+        'productPrice' => 'required|numeric', 
+        'productCategory' => 'required', 
+        'productDescription' => 'required', 
+        'productUnit' => 'required',
+        'productQuantity' => 'required|numeric'
+        
+    ];
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
+    }
     public function submitForm(){
         
-        $product = $this->validate([
-            'productID' => 'required | unique:products,uuid', 
-            'productName' => 'required', 
-            'productPrice' => 'required|numeric', 
-            'productCategory' => 'required', 
-            'productDescription' => 'required', 
-            'productUnit' => 'required',
-            
-        ]);
-        dd($product);
+        $product = $this->validate();
+
         $product = [
             'uuid' => $this->productID, 
             'name' => $this->productName, 
@@ -34,6 +39,7 @@ class Modal extends Component
             'category' => $this->productCategory, 
             'description' => $this->productDescription, 
             'unit' => $this->productUnit,
+            'quantity' => $this->productQuantity,
             'added_by' => request()->user()->name,
             'last_modified_by' => request()->user()->name,
             'team_id' => request()->user()->currentTeam->id
@@ -59,7 +65,8 @@ class Modal extends Component
         $this->productDescription = '';
         $this->productUnit = '';
     }
-
+    
+    
     public function refreshProductList(){
 
         return redirect()->route('products.index');

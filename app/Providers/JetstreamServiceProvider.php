@@ -52,21 +52,72 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::defaultApiTokenPermissions(['read']);
 
         Jetstream::role('admin', __('Administrator'), [
-            'create',
-            'read',
-            'update',
-            'delete',
+            'product:read',
+            'product:update',
+            'product:create',
+            'product:delete',
+
+            'client:read',
+            'client:update',
+            'client:create',
+            'client:delete',
+
+            'command:read',
+            'command:update',
+            'command:create',
+            'command:delete',
+
+            'order:read',
+            'order:update',
+            'order:create',
+            'order:delete',
+
+            'message:read',
+            'message:update',
+            'message:create',
+            'message:delete',
+
+            'can:broadcast',
+
         ])->description(__('Administrator users can perform any action.'));
 
         Jetstream::role('sales', __('Sales'), [
-            'read',
-            'create',
-            'update',
-        ])->description(__('Sales users have the ability to read, create, and update.'));
+
+            'product:read',
+
+            'order:read',
+            'order:update',
+            'order:create',
+
+            'message:read',
+            'message:update',
+            'message:create',
+            
+            'command:read',
+            'command:update',
+            'command:create',
+
+            'can:broadcast',
+
+        ])->description(__('Sales users'));
+
+        Jetstream::role('employee', __('Employee'), [
+
+            'product:read',
+            'command:read',
+            'client:read',
+            'order:read',
+            'message:read',
+
+        ])->description(__('Employee users'));
+
         Jetstream::role('editor', __('Editor'), [
-            'read',
-            'create',
-            'update',
-        ])->description(__('Editor users have the ability to read, create, and update.'));
+
+            'product:read',
+            'product:update',
+            'product:create',
+
+            
+        ])->description(__('Editor users'));
     }
 }

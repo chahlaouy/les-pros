@@ -21,14 +21,14 @@
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                {{-- button search --}}
+                {{-- notifications and messages  --}}
                 <div class="w-10 h-10 bg-white rounded-2xl mr-2 flex items-center justify-center text-gray-700 text-green-600">
                     <ion-icon name="notifications-outline"></ion-icon>
                 </div>
                 <div class="w-10 h-10 bg-white rounded-2xl mr-2 flex items-center justify-center text-green-600">
                     <ion-icon name="mail-outline"></ion-icon>
                 </div>
-                <x-button-search width="56"></x-button-search>
+                <livewire:search-dropdown />
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">

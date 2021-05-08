@@ -59,7 +59,7 @@
                         @enderror 
                     </label>
                     <label 
-                    class="block">
+                    class="block mb-8">
                         <span 
                         class="text-gray-700 capitalize">{{__('product unit')}}</span>
                         <input 
@@ -74,6 +74,27 @@
                         value="{{old('productUnit')}}"
                         placeholder="{{__('product unit')}}">
                         @error('productUnit')
+                            <span class="text-red-400">
+                                {{$message}}
+                            </span>
+                        @enderror 
+                    </label>
+                    <label 
+                    class="block">
+                        <span 
+                        class="text-gray-700 capitalize">{{__('Product quantity')}}</span>
+                        <input 
+                        wire:model="productQuantity"
+                        id="product-quantity"
+                        name="product-quantity"
+                        type="text" 
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 
+                        @error('productQuantity')
+                        border border-red-500 
+                        @enderror" 
+                        value="{{old('productQuantity')}}"
+                        placeholder="{{__('Product quantity')}}">
+                        @error('productQuantity')
                             <span class="text-red-400">
                                 {{$message}}
                             </span>
@@ -153,8 +174,8 @@
             </div>
             {{-- buutons submit and cancel --}}
             <div class="flex items-center justify-end">
-                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-500 mr-8 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed">
-                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-500 mr-8 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed">
+                    <svg wire:loading wire:target="submitForm" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
@@ -166,13 +187,13 @@
                     type="button" 
                     class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-400 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed">
                     
-                    <svg 
+                    {{-- <svg 
                     class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" 
                     xmlns="http://www.w3.org/2000/svg" 
                     fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
+                    </svg> --}}
                     {{__('Cancel')}}
                   </button>
             </div>

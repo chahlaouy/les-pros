@@ -714,8 +714,9 @@
     "product price" : "prix de produit",
     "product category" : "categorie de produit",
     "product description" : "description de produit",
-    "load from a file" : "charger à partir d'un fichier",
-    "add new product" : "ajouter un nouveau produit",
+    "Product quantity" : "Quantité de produit",
+    "Load from a file" : "Charger à partir d'un fichier",
+    "Add new product" : "Ajouter un nouveau produit",
     "Inbox" : "Messages",
     "Orders" : "Vos Ordres",
     "Broadcasts" : "Diffuser",
@@ -726,6 +727,8 @@
     "Added by": "Ajouté par",
     "Last modified by": "Dernière modification par",
     "You don't have any products yet": "Vous n'avez pas encore des produits",
-    "Create a new one": "Publiez-en un nouveau",
-    "Sorry there has been an error please try again later": "Désolé, une erreur s'est produite, veuillez réessayer plus tard"
+    "Create a new one": "Creéz-en un nouveau",
+    "Sorry there has been an error please try again later": "Désolé, une erreur s'est produite, veuillez réessayer plus tard",
+    "Search for a product by name or id": "Rechercher un produit par son nom ou son identifiant",
+    "No result found": "Aucun résultat trouvé"
 }

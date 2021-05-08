@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('unit');
             $table->string('category');
             $table->float('price');
+            $table->float('quantity');
             $table->string('description');
             $table->string('product_photo_path')->nullable();
             $table->timestamps();
